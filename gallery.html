@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Gallery — Photos and footage of THIHA Industrial Park on Nairobi's Eastern Bypass." />
+  <title>Gallery | THIHA Industrial Park</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ── Fixed Video Background ─────────────── -->
+  <div class="video-bg">
+    <video autoplay muted loop playsinline>
+      <source src="images/DR4_web.mp4" type="video/mp4">
+    </video>
+    <div class="video-dim"></div>
+  </div>
+
+  <!-- ── Custom Cursor ──────────────────────── -->
+  <div class="cursor"></div>
+  <div class="cursor-follower"></div>
+  <div class="spine-dot" id="spineDot"></div>
+  <div class="spine-track">
+    <div class="spine-fill" id="spineFill"></div>
+  </div>
+
+  <!-- ── Navigation ─────────────────────────── -->
+  <nav class="nav">
+    <div class="container">
+      <a href="index.html" class="nav-logo">
+        <div class="logo-icon">🏗</div>
+        <span class="wordmark">THIHA</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="about-us.html">About Us</a></li>
+        <li><a href="gallery.html" class="active">Gallery</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="book-online.html" class="btn btn-nav">Book Online</a></li>
+      </ul>
+      <button class="nav-toggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ── Hero ───────────────────────────────── -->
+  <section class="about-hero">
+    <div class="about-hero-inner">
+      <h1 class="about-hero-title">A Look Inside</h1>
+      <p class="about-hero-sub">Exterior grounds, warehouse floor, loading docks and facilities —<br>all on Nairobi's Eastern Bypass.</p>
+    </div>
+  </section>
+
+  <!-- ── Gallery ────────────────────────────── -->
+  <section class="gal-section">
+    <div class="gal-container">
+
+      <!-- Filters -->
+      <div class="gal-filters">
+        <button class="gal-filter-btn active" data-filter="all">All</button>
+        <button class="gal-filter-btn" data-filter="interior">Interior</button>
+        <button class="gal-filter-btn" data-filter="exterior">Exterior</button>
+      </div>
+
+      <!-- Grid -->
+      <div class="gal-grid" id="galleryGrid">
+
+        <div class="gal-item" data-category="interior" data-src="images/THIHA GODOWNS-10.jpg">
+          <img src="images/THIHA GODOWNS-10.jpg" alt="THIHA interior" />
+          <div class="gal-overlay"><span>⊕</span></div>
+        </div>
+        <div class="gal-item" data-category="interior" data-src="images/THIHA GODOWNS-11.jpg">
+          <img src="images/THIHA GODOWNS-11.jpg" alt="THIHA interior" />
+          <div class="gal-overlay"><span>⊕</span></div>
+        </div>
+        <div class="gal-item" data-category="interior" data-src="images/THIHA GODOWNS-12.jpg">
+          <img src="images/THIHA GODOWNS-12.jpg" alt="THIHA interior" />
+          <div class="gal-overlay"><span>⊕</span></div>
+        </div>
+        <div class="gal-item" data-category="interior" data-src="images/THIHA GODOWNS-13.jpg">
+          <img src="images/THIHA GODOWNS-13.jpg" alt="THIHA interior" />
+          <div class="gal-overlay"><span>⊕</span></div>
+        </div>
+        <div class="gal-item" data-category="interior" data-src="images/THIHA GODOWNS-14.jpg">
+          <img src="images/THIHA GODOWNS-14.jpg" alt="THIHA interior" />
+          <div class="gal-overlay"><span>⊕</span></div>
+        </div>
+        <div class="gal-item" data-category="interior" data-src="images/THIHA GODOWNS-15.jpg">
+          <img src="images/THIHA GODOWNS-15.jpg" alt="THIHA interior" />
+          <div class="gal-overlay"><span>⊕</span></div>
+        </div>
+        <div class="gal-item" data-category="interior" data-src="images/THIHA GODOWNS-17.jpg">
+          <img src="images/THIHA GODOWNS-17.jpg" alt="THIHA interior" />
+          <div class="gal-overlay"><span>⊕</span></div>
+        </div>
+        <div class="gal-item" data-category="interior" data-src="images/THIHA GODOWNS-20.jpg">
+          <img src="images/THIHA GODOWNS-20.jpg" alt="THIHA interior" />
+          <div class="gal-overlay"><span>⊕</span></div>
+        </div>
+        <div class="gal-item" data-category="interior" data-src="images/THIHA GODOWNS-23.jpg">
+          <img src="images/THIHA GODOWNS-23.jpg" alt="THIHA interior" />
+          <div class="gal-overlay"><span>⊕</span></div>
+        </div>
+        <div class="gal-item" data-category="interior" data-src="images/THIHA GODOWNS-24.jpg">
+          <img src="images/THIHA GODOWNS-24.jpg" alt="THIHA interior" />
+          <div class="gal-overlay"><span>⊕</span></div>
+        </div>
+        <div class="gal-item" data-category="interior" data-src="images/THIHA GODOWNS-28.jpg">
+          <img src="images/THIHA GODOWNS-28.jpg" alt="THIHA interior" />
+          <div class="gal-overlay"><span>⊕</span></div>
+        </div>
+        <div class="gal-item" data-category="interior" data-src="images/THIHA GODOWNS-29.jpg">
+          <img src="images/THIHA GODOWNS-29.jpg" alt="THIHA interior" />
+          <div class="gal-overlay"><span>⊕</span></div>
+        </div>
+        <div class="gal-item" data-category="interior" data-src="images/THIHA GODOWNS-30.jpg">
+          <img src="images/THIHA GODOWNS-30.jpg" alt="THIHA interior" />
+          <div class="gal-overlay"><span>⊕</span></div>
+        </div>
+        <div class="gal-item" data-category="interior" data-src="images/THIHA GODOWNS-31.jpg">
+          <img src="images/THIHA GODOWNS-31.jpg" alt="THIHA interior" />
+          <div class="gal-overlay"><span>⊕</span></div>
+        </div>
+        <div class="gal-item" data-category="interior" data-src="images/THIHA GODOWNS-32.jpg">
+          <img src="images/THIHA GODOWNS-32.jpg" alt="THIHA interior" />
+          <div class="gal-overlay"><span>⊕</span></div>
+        </div>
+        <div class="gal-item" data-category="interior" data-src="images/THIHA GODOWNS-33.jpg">
+          <img src="images/THIHA GODOWNS-33.jpg" alt="THIHA interior" />
+          <div class="gal-overlay"><span>⊕</span></div>
+        </div>
+        <div class="gal-item" data-category="interior" data-src="images/THIHA GODOWNS-34.jpg">
+          <img src="images/THIHA GODOWNS-34.jpg" alt="THIHA interior" />
+          <div class="gal-overlay"><span>⊕</span></div>
+        </div>
+        <div class="gal-item" data-category="interior" data-src="images/THIHA GODOWNS-35.jpg">
+          <img src="images/THIHA GODOWNS-35.jpg" alt="THIHA interior" />
+          <div class="gal-overlay"><span>⊕</span></div>
+        </div>
+        <div class="gal-item" data-category="interior" data-src="images/THIHA GODOWNS-36.jpg">
+          <img src="images/THIHA GODOWNS-36.jpg" alt="THIHA interior" />
+          <div class="gal-overlay"><span>⊕</span></div>
+        </div>
+        <div class="gal-item" data-category="interior" data-src="images/THIHA GODOWNS-38.jpg">
+          <img src="images/THIHA GODOWNS-38.jpg" alt="THIHA interior" />
+          <div class="gal-overlay"><span>⊕</span></div>
+        </div>
+        <div class="gal-item" data-category="interior" data-src="images/THIHA GODOWNS-39.jpg">
+          <img src="images/THIHA GODOWNS-39.jpg" alt="THIHA interior" />
+          <div class="gal-overlay"><span>⊕</span></div>
+        </div>
+        <div class="gal-item" data-category="interior" data-src="images/THIHA GODOWNS-40.jpg">
+          <img src="images/THIHA GODOWNS-40.jpg" alt="THIHA interior" />
+          <div class="gal-overlay"><span>⊕</span></div>
+        </div>
+
+        <!-- Exterior videos -->
+        <div class="gal-item" data-category="exterior" data-src="images/DR1.MP4" data-type="video">
+          <video muted loop playsinline>
+            <source src="images/DR1.MP4" type="video/mp4">
+          </video>
+          <span class="gal-video-badge">Video</span>
+          <div class="gal-overlay"><span>▶</span></div>
+        </div>
+        <div class="gal-item" data-category="exterior" data-src="images/DR2_web.mp4" data-type="video">
+          <video muted loop playsinline>
+            <source src="images/DR2_web.mp4" type="video/mp4">
+          </video>
+          <span class="gal-video-badge">Video</span>
+          <div class="gal-overlay"><span>▶</span></div>
+        </div>
+        <div class="gal-item" data-category="exterior" data-src="images/DR3.MP4" data-type="video">
+          <video muted loop playsinline>
+            <source src="images/DR3.MP4" type="video/mp4">
+          </video>
+          <span class="gal-video-badge">Video</span>
+          <div class="gal-overlay"><span>▶</span></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Footer ─────────────────────────────── -->
+  <footer class="footer" id="contact">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">THIHA</div>
+      </div>
+      <div class="footer-info">
+        <div class="footer-col">
+          <p>0722 375 143 - Mr Sylvester Ndungu</p>
+          <p>Email: info@homepluskenya.com</p>
+          <p>Homeplus Realtors Limited</p>
+        </div>
+        <div class="footer-col">
+          <p>Nairobi Eastern Bypass</p>
+          <p>Nairobi, Kenya</p>
+          <a href="faq.html">FAQ</a>
+        </div>
+        <div class="footer-col footer-map">
+          <iframe
+            src="https://www.google.com/maps?q=QXCQ%2BGF+Nairobi+Kenya&output=embed"
+            width="100%"
+            style="border:0; border-radius:10px;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        © 2025 THIHA Industrial Park. Managed by Homeplus Realtors Limited. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- ── Lightbox ───────────────────────────── -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightboxClose">×</button>
+    <button class="lightbox-prev" id="lightboxPrev">‹</button>
+    <div class="lightbox-content" id="lightboxContent"></div>
+    <div class="lightbox-counter" id="lightboxCounter"></div>
+    <button class="lightbox-next" id="lightboxNext">›</button>
+  </div>
+
+  <script src="main.js"></script>
+  <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">↑</button>
+</body>
+</html>

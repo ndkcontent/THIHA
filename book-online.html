@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Book a consultation with THIHA Warehouses — tell us about your storage and logistics needs and we'll get back to you promptly." />
+  <title>Book Online | THIHA Warehouses</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ── Fixed Video Background ─────────────── -->
+  <div class="video-bg">
+    <video autoplay muted loop playsinline>
+      <source src="images/DR4_web.mp4" type="video/mp4">
+    </video>
+    <div class="video-dim"></div>
+  </div>
+
+  <!-- ── Custom Cursor ──────────────────────── -->
+  <div class="cursor"></div>
+  <div class="cursor-follower"></div>
+  <div class="spine-dot" id="spineDot"></div>
+  <div class="spine-track">
+    <div class="spine-fill" id="spineFill"></div>
+  </div>
+
+  <!-- ── Navigation ─────────────────────────── -->
+  <nav class="nav">
+    <div class="container">
+      <a href="index.html" class="nav-logo">
+        <div class="logo-icon">🏗</div>
+        <span class="wordmark">THIHA</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="about-us.html">About Us</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="book-online.html" class="btn btn-nav active">Book Online</a></li>
+      </ul>
+      <button class="nav-toggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ── Hero ───────────────────────────────── -->
+  <section class="about-hero">
+    <div class="about-hero-inner">
+      <h1 class="about-hero-title">Book a Consultation</h1>
+      <p class="about-hero-sub">Tell us about your warehouse and logistics needs —<br>we'll be in touch within one business day.</p>
+    </div>
+  </section>
+
+  <!-- ── Book Scroll Stage ──────────────────── -->
+  <div class="book-sections-scroll" id="bookSectionsScroll">
+    <div class="book-sections-stage">
+      <div class="book-stage-box">
+
+        <!-- Panel 1: Contact Info -->
+        <div class="book-panel">
+          <div class="book-stage">
+            <h2 class="about-h2">We'd Love to Hear From You</h2>
+            <p class="about-body" style="margin-bottom:2.5rem;">Whether you're looking to store a few pallets or need a fully managed logistics solution, THIHA's team will take the time to understand your requirements and recommend the right approach. No obligation, no pressure.</p>
+            <div class="book-contacts">
+              <div class="book-contact-item">
+                <div class="book-contact-icon">📞</div>
+                <div class="book-contact-text">
+                  <strong>Phone</strong>
+                  <span>0722 375 143 — Mr Sylvester Ndungu</span>
+                </div>
+              </div>
+              <div class="book-contact-item">
+                <div class="book-contact-icon">✉️</div>
+                <div class="book-contact-text">
+                  <strong>Email</strong>
+                  <span>info@homepluskenya.com</span>
+                </div>
+              </div>
+              <div class="book-contact-item">
+                <div class="book-contact-icon">📍</div>
+                <div class="book-contact-text">
+                  <strong>Location</strong>
+                  <span>Nairobi Eastern Bypass, Nairobi, Kenya</span>
+                </div>
+              </div>
+              <div class="book-contact-item">
+                <div class="book-contact-icon">🕐</div>
+                <div class="book-contact-text">
+                  <strong>Response Time</strong>
+                  <span>Within 1 business day</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel 2: Form -->
+        <div class="book-panel">
+          <div class="book-stage">
+            <h2 class="about-h2">Send an Enquiry</h2>
+            <div class="book-form-card" id="bookFormWrapper">
+              <form class="thiha-form book-glass-form" id="bookingForm" novalidate>
+                <div class="book-form-row">
+                  <div class="book-form-group">
+                    <label for="firstName">First Name</label>
+                    <input type="text" id="firstName" name="firstName" placeholder="John" required />
+                  </div>
+                  <div class="book-form-group">
+                    <label for="lastName">Last Name</label>
+                    <input type="text" id="lastName" name="lastName" placeholder="Smith" required />
+                  </div>
+                </div>
+                <div class="book-form-row">
+                  <div class="book-form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="john@company.com" required />
+                  </div>
+                  <div class="book-form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" placeholder="+254 000 000 000" />
+                  </div>
+                </div>
+                <div class="book-form-group book-form-group-full">
+                  <label for="company">Company Name</label>
+                  <input type="text" id="company" name="company" placeholder="Your Business Name" />
+                </div>
+                <div class="book-form-row">
+                  <div class="book-form-group">
+                    <label for="service">Service Required</label>
+                    <select id="service" name="service">
+                      <option value="">Select a service...</option>
+                      <option value="storage">Storage Solutions</option>
+                      <option value="logistics">Logistics Management</option>
+                      <option value="inventory">Inventory Control</option>
+                      <option value="custom">Customised Solutions</option>
+                      <option value="unsure">Not Sure Yet</option>
+                    </select>
+                  </div>
+                  <div class="book-form-group">
+                    <label for="industry">Your Industry</label>
+                    <select id="industry" name="industry">
+                      <option value="">Select industry...</option>
+                      <option value="retail">Retail</option>
+                      <option value="ecommerce">E-Commerce</option>
+                      <option value="manufacturing">Manufacturing</option>
+                      <option value="other">Other</option>
+                    </select>
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-outline-light book-submit">Send Enquiry</button>
+                <p class="book-form-note">By submitting this form you agree to THIHA's Privacy Policy. We'll never share your details with third parties.</p>
+              </form>
+            </div>
+            <div class="book-success-msg" id="bookSuccessMsg">
+              <span class="book-success-icon">✅</span>
+              <h3 class="about-h2">Enquiry Received</h3>
+              <p class="about-body">Thank you for reaching out to THIHA Warehouses. A member of our team will be in touch within one business day.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Indicators -->
+      <div class="stage-indicators" id="bookIndicators">
+        <span class="stage-dot active" data-dot="0"></span>
+        <span class="stage-dot" data-dot="1"></span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── Footer ─────────────────────────────── -->
+  <footer class="footer" id="contact">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">THIHA</div>
+      </div>
+      <div class="footer-info">
+        <div class="footer-col">
+          <p>0722 375 143 - Mr Sylvester Ndungu</p>
+          <p>Email: info@homepluskenya.com</p>
+          <p>Homeplus Realtors Limited</p>
+        </div>
+        <div class="footer-col">
+          <p>Nairobi Eastern Bypass</p>
+          <p>Nairobi, Kenya</p>
+          <a href="faq.html">FAQ</a>
+        </div>
+        <div class="footer-col footer-map">
+          <iframe
+            src="https://www.google.com/maps?q=QXCQ%2BGF+Nairobi+Kenya&output=embed"
+            width="100%"
+            style="border:0; border-radius:10px;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        © 2025 THIHA Industrial Park. Managed by Homeplus Realtors Limited. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+  <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">↑</button>
+</body>
+</html>
