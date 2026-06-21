@@ -21,8 +21,8 @@ document.addEventListener('DOMContentLoaded', () => {
       '.why-name','.why-number','.why-sub',
       '.testimonials-quote','.testimonials-brand',
       '.testimonials-name','.panel-lead','.panel-body',
-      '.footer-brand','.service-asterisk','.wordmark',
-      '.btn','.btn-nav','.btn-outline-light',
+      '.footer-brand','.service-asterisk',
+      '.btn-outline-light',
       '.footer-col p','.footer-col a',
       '.faq-glass-question','.faq-glass-answer-inner',
       '.faq-category-label','.about-h2','.about-lead',
@@ -149,6 +149,36 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  /* ── FAQ deep link via hash ──────────────── */
+  if (window.location.hash && document.querySelector('.faq-sections-scroll')) {
+    const targetId = window.location.hash.slice(1);
+    const targetItem = document.getElementById(targetId);
+
+    if (targetItem) {
+      // Find which panel contains this item
+      const parentPanel = targetItem.closest('.faq-panel');
+      const allPanels = [...document.querySelectorAll('.faq-panel')];
+      const panelIndex = allPanels.indexOf(parentPanel);
+
+      // Wait for page to settle then navigate
+      setTimeout(() => {
+        const faqScroll = document.getElementById('faqSectionsScroll');
+        if (faqScroll && panelIndex >= 0) {
+          const scrollable = faqScroll.offsetHeight - window.innerHeight;
+          const FAQ_TOTAL = allPanels.length;
+          const targetScroll = faqScroll.offsetTop + (panelIndex / (FAQ_TOTAL - 1)) * scrollable;
+          window.scrollTo({ top: targetScroll, behavior: 'smooth' });
+
+          // Open the accordion item
+          setTimeout(() => {
+            targetItem.classList.add('open');
+          }, 800);
+        }
+      }, 500);
+    }
+  }
+  
+
   /* ── Nav scroll ─────────────────────────── */
   const nav = document.querySelector('.nav');
   if (nav) {
@@ -156,6 +186,23 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', onNavScroll, { passive: true });
     onNavScroll();
   }
+
+  /* ── Nav dropdowns ──────────────────────── */
+  const dropdownItems = document.querySelectorAll('.nav-has-dropdown');
+  dropdownItems.forEach(item => {
+    let timeout;
+    item.addEventListener('mouseenter', () => {
+      clearTimeout(timeout);
+      const dropdown = item.querySelector('.nav-dropdown');
+      if (dropdown) dropdown.classList.add('open');
+    });
+    item.addEventListener('mouseleave', () => {
+      timeout = setTimeout(() => {
+        const dropdown = item.querySelector('.nav-dropdown');
+        if (dropdown) dropdown.classList.remove('open');
+      }, 150);
+    });
+  });
 
   /* ── Mobile nav toggle ──────────────────── */
   const toggle = document.querySelector('.nav-toggle');
@@ -193,6 +240,8 @@ document.addEventListener('DOMContentLoaded', () => {
       heroContent.style.transform = `translateY(${-progress * 80}px)`;
     }, { passive: true });
   }
+
+  
 
   /* ── Section panels scroll driver ──────── */
   const sectionsScroll = document.getElementById('sectionsScroll');
@@ -292,6 +341,124 @@ document.addEventListener('DOMContentLoaded', () => {
     dots.forEach((dot, i) => dot.addEventListener('click', () => goToPanel(i)));
 
     activatePanel(0);
+  }
+
+  /* ── Partners carousel ────────────────────── */
+  const partnersCarousel = document.getElementById('partnersCarousel');
+  const partnersTrack = document.getElementById('partnersTrack');
+  const partnersPrev = document.getElementById('partnersPrev');
+  const partnersNext = document.getElementById('partnersNext');
+
+  if (partnersCarousel && partnersTrack) {
+    partnersCarousel.addEventListener('mouseenter', () => partnersCarousel.classList.add('paused'));
+    partnersCarousel.addEventListener('mouseleave', () => partnersCarousel.classList.remove('paused'));
+
+    let resumeTimer = null;
+    const cardWidth = 196;
+
+    function nudge(direction) {
+      partnersCarousel.classList.add('paused');
+      const wrap = partnersTrack.parentElement;
+      wrap.scrollBy({ left: direction * cardWidth * 2, behavior: 'smooth' });
+      clearTimeout(resumeTimer);
+      resumeTimer = setTimeout(() => partnersCarousel.classList.remove('paused'), 3000);
+    }
+
+    if (partnersPrev) partnersPrev.addEventListener('click', () => nudge(-1));
+    if (partnersNext) partnersNext.addEventListener('click', () => nudge(1));
+  }
+
+  /* ── Space Calculator ────────────────────── */
+  var calcModal      = document.getElementById('calcModal');
+  var calcBtn        = document.getElementById('fabCalcBtn');
+  var calcClose      = document.getElementById('calcClose');
+  var calcPallets    = document.getElementById('calcPallets');
+  var calcPalletsVal = document.getElementById('calcPalletsVal');
+  var calcSqft       = document.getElementById('calcSqft');
+  var calcGroundFill = document.getElementById('calcGroundFill');
+  var calcFirstFill  = document.getElementById('calcFirstFill');
+  var calcGroundPct  = document.getElementById('calcGroundPct');
+  var calcFirstPct   = document.getElementById('calcFirstPct');
+  var calcNote       = document.getElementById('calcNote');
+
+  var SQFT_PER_PALLET = 32; /* rule-of-thumb incl. aisle access */
+  var FLOOR_SQFT = 5000;
+
+  function updateCalc() {
+    var pallets = parseInt(calcPallets.value, 10);
+    var sqft = pallets * SQFT_PER_PALLET;
+    calcPalletsVal.textContent = pallets;
+    calcSqft.textContent = sqft;
+
+    var groundFill = Math.min(sqft, FLOOR_SQFT);
+    var overflow = Math.max(sqft - FLOOR_SQFT, 0);
+    var firstFill = Math.min(overflow, FLOOR_SQFT);
+
+    var groundPct = Math.round((groundFill / FLOOR_SQFT) * 100);
+    var firstPct  = Math.round((firstFill / FLOOR_SQFT) * 100);
+
+    calcGroundFill.style.width = groundPct + '%';
+    calcFirstFill.style.width  = firstPct + '%';
+    calcGroundPct.textContent = groundPct + '%';
+    calcFirstPct.textContent  = firstPct + '%';
+
+    if (sqft <= FLOOR_SQFT) {
+      calcNote.textContent = 'Comfortably fits within our Ground Floor Storage with room to grow.';
+    } else if (sqft <= FLOOR_SQFT * 2) {
+      calcNote.textContent = "You'll need both floors — Ground Floor Storage plus First Floor Open Storage.";
+    } else {
+      calcNote.textContent = "This exceeds our standard floor capacity — get in touch and we'll discuss a custom solution.";
+    }
+  }
+
+  if (calcPallets) {
+    calcPallets.addEventListener('input', updateCalc);
+    updateCalc();
+  }
+  if (calcBtn && calcModal) {
+    calcBtn.addEventListener('click', function () {
+      calcModal.classList.add('active');
+      updateCalc();
+    });
+  }
+  if (calcClose && calcModal) {
+    calcClose.addEventListener('click', function () {
+      calcModal.classList.remove('active');
+    });
+  }
+  if (calcModal) {
+    calcModal.addEventListener('click', function (e) {
+      if (e.target === calcModal) calcModal.classList.remove('active');
+    });
+  }
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && calcModal && calcModal.classList.contains('active')) {
+      calcModal.classList.remove('active');
+    }
+  });
+
+  /* ── Cookie Consent Banner ────────────────── */
+  var cookieBanner  = document.getElementById('cookieBanner');
+  var cookieAccept  = document.getElementById('cookieAccept');
+  var cookieDecline = document.getElementById('cookieDecline');
+
+  if (cookieBanner) {
+    var consent = localStorage.getItem('thiha_cookie_consent');
+    if (!consent) {
+      setTimeout(function () { cookieBanner.classList.add('show'); }, 1200);
+    }
+    if (cookieAccept) {
+      cookieAccept.addEventListener('click', function () {
+        localStorage.setItem('thiha_cookie_consent', 'accepted');
+        cookieBanner.classList.remove('show');
+      });
+    }
+    if (cookieDecline) {
+      cookieDecline.addEventListener('click', function () {
+        localStorage.setItem('thiha_cookie_consent', 'declined');
+        cookieBanner.classList.remove('show');
+      });
+    }
   }
 
   /* ── About page scroll driver ───────────── */
@@ -706,6 +873,21 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('bookSuccessMsg').classList.add('show');
       });
     }
+
+    // Handle nav dropdown "Send an Enquiry" click — works on all pages including book-online itself
+    document.querySelectorAll('a[href="book-online.html#enquiry-form"]').forEach(link => {
+      link.addEventListener('click', (e) => {
+        if (window.location.pathname.includes('book-online')) {
+          e.preventDefault();
+          goToBookPanel(1);
+        }
+      });
+    });
+
+    // Handle hash on page load
+    if (window.location.hash === '#enquiry-form') {
+      setTimeout(() => goToBookPanel(1), 500);
+    }
   }
 
   /* ── Contact form ───────────────────────── */
@@ -718,12 +900,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  /* ── Scroll to top ──────────────────────── */
-  const scrollTopBtn = document.getElementById('scrollTop');
-  if (scrollTopBtn) {
-    window.addEventListener('scroll', () => scrollTopBtn.classList.toggle('visible', window.scrollY > 400), { passive: true });
-    scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-  }
+  
 
   /* ── Spine ──────────────────────────────── */
   const spineFill = document.getElementById('spineFill');

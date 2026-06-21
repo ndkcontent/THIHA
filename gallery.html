@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Gallery — Photos and footage of THIHA Industrial Park on Nairobi's Eastern Bypass." />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Gallery — THIHA Industrial Park facility map and photos."/>
   <title>Gallery | THIHA Industrial Park</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
 
-  <!-- ── Fixed Video Background ─────────────── -->
   <div class="video-bg">
     <video autoplay muted loop playsinline>
       <source src="images/DR4_web.mp4" type="video/mp4">
@@ -17,15 +16,14 @@
     <div class="video-dim"></div>
   </div>
 
-  <!-- ── Custom Cursor ──────────────────────── -->
+  <!-- Frost overlay — activates when warehouse section enters view -->
+  <div class="wh-frost-overlay" id="whFrost"></div>
+
   <div class="cursor"></div>
   <div class="cursor-follower"></div>
   <div class="spine-dot" id="spineDot"></div>
-  <div class="spine-track">
-    <div class="spine-fill" id="spineFill"></div>
-  </div>
+  <div class="spine-track"><div class="spine-fill" id="spineFill"></div></div>
 
-  <!-- ── Navigation ─────────────────────────── -->
   <nav class="nav">
     <div class="container">
       <a href="index.html" class="nav-logo">
@@ -33,10 +31,44 @@
         <span class="wordmark">THIHA</span>
       </a>
       <ul class="nav-links">
-        <li><a href="about-us.html">About Us</a></li>
-        <li><a href="gallery.html" class="active">Gallery</a></li>
-        <li><a href="faq.html">FAQ</a></li>
-        <li><a href="book-online.html" class="btn btn-nav">Book Online</a></li>
+        <li class="nav-item"><a href="about-us.html">About Us</a></li>
+        <li class="nav-item"><a href="gallery.html" class="active">Gallery</a></li>
+        <li class="nav-item nav-has-dropdown">
+          <a href="faq.html" class="nav-dropdown-trigger">FAQ</a>
+          <div class="nav-dropdown">
+            <div class="nav-dropdown-group">
+              <span class="nav-dropdown-category">General</span>
+              <a href="faq.html#what-is-thiha" class="nav-dropdown-item">What is THIHA Warehouses?</a>
+              <a href="faq.html#what-businesses" class="nav-dropdown-item">What types of businesses does THIHA work with?</a>
+              <a href="faq.html#where-located" class="nav-dropdown-item">Where is THIHA Warehouses located?</a>
+            </div>
+            <div class="nav-dropdown-group">
+              <span class="nav-dropdown-category">Storage</span>
+              <a href="faq.html#storage-options" class="nav-dropdown-item">What storage options are available?</a>
+              <a href="faq.html#scale-storage" class="nav-dropdown-item">Can I scale my storage up or down?</a>
+              <a href="faq.html#inventory-secure" class="nav-dropdown-item">How is my inventory kept secure?</a>
+            </div>
+            <div class="nav-dropdown-group">
+              <span class="nav-dropdown-category">Getting Started</span>
+              <a href="faq.html#get-started" class="nav-dropdown-item">How do I get started?</a>
+              <a href="faq.html#onboarding-time" class="nav-dropdown-item">How long does onboarding take?</a>
+              <a href="faq.html#minimum-contract" class="nav-dropdown-item">Is there a minimum contract term?</a>
+            </div>
+          </div>
+        </li>
+        <li class="nav-item nav-has-dropdown">
+          <a href="book-online.html" class="btn btn-nav nav-dropdown-trigger">Book Online</a>
+          <div class="nav-dropdown nav-dropdown-right">
+            <p class="nav-dropdown-heading">Get in Touch</p>
+            <div class="nav-dropdown-contacts">
+              <div class="nav-dropdown-contact-item"><span>📞</span><span>0722 375 143 — Mr Sylvester Ndungu</span></div>
+              <div class="nav-dropdown-contact-item"><span>✉️</span><span>info@homepluskenya.com</span></div>
+              <div class="nav-dropdown-contact-item"><span>📍</span><a href="#contact">Nairobi Eastern Bypass, Nairobi</a></div>
+              <div class="nav-dropdown-contact-item"><span>🕐</span><span>Response within 1 business day</span></div>
+            </div>
+            <a href="book-online.html#enquiry-form" class="nav-dropdown-cta">Send an Enquiry →</a>
+          </div>
+        </li>
       </ul>
       <button class="nav-toggle" aria-label="Toggle menu">
         <span></span><span></span><span></span>
@@ -44,150 +76,273 @@
     </div>
   </nav>
 
-  <!-- ── Hero ───────────────────────────────── -->
   <section class="about-hero">
     <div class="about-hero-inner">
       <h1 class="about-hero-title">A Look Inside</h1>
-      <p class="about-hero-sub">Exterior grounds, warehouse floor, loading docks and facilities —<br>all on Nairobi's Eastern Bypass.</p>
+      <p class="about-hero-sub">Hover to preview, click to lock a zone and browse photos —<br>all at <a href="#contact">Nairobi's Eastern Bypass</a>.</p>
     </div>
   </section>
 
-  <!-- ── Gallery ────────────────────────────── -->
-  <section class="gal-section">
-    <div class="gal-container">
+  <section class="wh-section" id="whSection">
+    <div class="wh-full-wrap">
 
-      <!-- Filters -->
-      <div class="gal-filters">
-        <button class="gal-filter-btn active" data-filter="all">All</button>
-        <button class="gal-filter-btn" data-filter="interior">Interior</button>
-        <button class="gal-filter-btn" data-filter="exterior">Exterior</button>
+      <div class="wh-diagram-full">
+
+        <!--
+          SVG: Flat front elevation, viewed from left side.
+          ViewBox: 0 0 920 430
+          Left side depth panel: x=15 to x=95 (parallelogram showing building depth)
+          Main facade: x=95 to x=905, y=160 to y=408
+          Roof peak: x=500, y=42 (centred exactly: 95+405=500, 905-405=500 ✓)
+          Mid-floor: y=284
+          Office block: x=95 to x=320 (225px)
+          Storage / mezzanine: x=320 to x=905 (585px)
+          Windows: symmetric [large=52, gap=11, narrow=30, gap=11, narrow=30, gap=11, large=52]
+          Left margin = (225-197)/2 = 14px ← exactly symmetric
+        -->
+        <svg id="whSvg"
+          viewBox="0 0 920 430"
+          xmlns="http://www.w3.org/2000/svg"
+          style="width:100%;display:block;cursor:none;">
+
+          <defs>
+            <filter id="wfg" x="-60%" y="-60%" width="220%" height="220%">
+              <feGaussianBlur stdDeviation="2.5" result="b"/>
+              <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+          </defs>
+
+          <!-- ══════════ INTERACTIVE ZONE FILLS ══════════ -->
+
+          <!-- Z0: Left depth panel — Main Warehouse Door -->
+          <polygon id="wz0" class="wh-zone" data-zone="0"
+            points="15,180 95,160 95,408 15,408"
+            fill="rgba(100,200,255,0.06)"/>
+
+          <!-- Z1: Office Block — full height -->
+          <rect id="wz1" class="wh-zone" data-zone="1"
+            x="95" y="160" width="225" height="248"
+            fill="rgba(100,255,160,0.06)"/>
+
+          <!-- Z2: First Floor Open Storage — upper right -->
+          <rect id="wz2" class="wh-zone" data-zone="2"
+            x="320" y="160" width="585" height="124"
+            fill="rgba(255,130,130,0.06)"/>
+
+          <!-- Z3: Ground Floor Storage — lower right -->
+          <rect id="wz3" class="wh-zone" data-zone="3"
+            x="320" y="284" width="585" height="124"
+            fill="rgba(255,210,100,0.06)"/>
+
+          <!-- Z4: Exterior — thin strip below -->
+          <rect id="wz4" class="wh-zone" data-zone="4"
+            x="15" y="408" width="890" height="22"
+            fill="rgba(210,160,255,0.06)"/>
+
+          <!-- ══════════ STRUCTURE (pointer-events:none) ══════════ -->
+
+          <!-- Left side depth panel -->
+          <polygon
+            points="15,180 95,160 95,408 15,408"
+            fill="rgba(255,255,255,0.03)"
+            stroke="rgba(255,255,255,0.6)" stroke-width="1.5"
+            pointer-events="none"/>
+
+          <!-- Left roof depth face (parallelogram) -->
+          <polygon
+            points="15,180 95,160 500,42 420,62"
+            fill="rgba(255,255,255,0.025)"
+            stroke="rgba(255,255,255,0.28)" stroke-width="1"
+            pointer-events="none"/>
+
+          <!-- Main facade outline -->
+          <rect x="95" y="160" width="810" height="248"
+            fill="none"
+            stroke="rgba(255,255,255,0.65)" stroke-width="1.8"
+            pointer-events="none"/>
+
+          <!-- Pitched roof — left slope -->
+          <line x1="95" y1="160" x2="500" y2="42"
+            stroke="rgba(255,255,255,0.75)" stroke-width="1.8"
+            pointer-events="none"/>
+          <!-- Pitched roof — right slope -->
+          <line x1="905" y1="160" x2="500" y2="42"
+            stroke="rgba(255,255,255,0.75)" stroke-width="1.8"
+            pointer-events="none"/>
+
+          <!-- Mid-floor horizontal divider -->
+          <line x1="95" y1="284" x2="905" y2="284"
+            stroke="rgba(255,255,255,0.35)" stroke-width="1.3"
+            pointer-events="none"/>
+
+          <!-- Office / warehouse vertical divider -->
+          <line x1="320" y1="160" x2="320" y2="408"
+            stroke="rgba(255,255,255,0.35)" stroke-width="1.3"
+            pointer-events="none"/>
+
+            <!-- ── OFFICE UPPER FLOOR WINDOWS (y=184, centred in floor, height=76) ── -->
+          <!-- Floor runs y=160 to y=284 (124px). (124-76)/2 = 24px margin top+bottom -->
+          <rect x="120" y="184" width="35" height="46"
+            fill="rgba(100,200,255,0.18)" stroke="rgba(255,255,255,0.62)" stroke-width="1.1"
+            pointer-events="none"/>
+          <rect x="167" y="184" width="36" height="96"
+            fill="rgba(100,200,255,0.18)" stroke="rgba(255,255,255,0.62)" stroke-width="1.1"
+            pointer-events="none"/>
+          <rect x="212" y="184" width="36" height="96"
+            fill="rgba(100,200,255,0.18)" stroke="rgba(255,255,255,0.62)" stroke-width="1.1"
+            pointer-events="none"/>
+          <rect x="260" y="184" width="35" height="46"
+            fill="rgba(100,200,255,0.18)" stroke="rgba(255,255,255,0.62)" stroke-width="1.1"
+            pointer-events="none"/>
+
+          <!-- ── OFFICE LOWER FLOOR WINDOWS (y=308, centred in floor, height=76) ── -->
+          <!-- Floor runs y=284 to y=408 (124px). 284 + 24 = 308 -->
+          <rect x="120" y="308" width="35" height="46"
+            fill="rgba(100,200,255,0.18)" stroke="rgba(255,255,255,0.62)" stroke-width="1.1"
+            pointer-events="none"/>
+          <rect x="167" y="308" width="36" height="96"
+            fill="rgba(100,200,255,0.18)" stroke="rgba(255,255,255,0.62)" stroke-width="1.1"
+            pointer-events="none"/>
+          <rect x="212" y="308" width="36" height="96"
+            fill="rgba(100,200,255,0.18)" stroke="rgba(255,255,255,0.62)" stroke-width="1.1"
+            pointer-events="none"/>
+          <rect x="260" y="308" width="35" height="46"
+            fill="rgba(100,200,255,0.18)" stroke="rgba(255,255,255,0.62)" stroke-width="1.1"
+            pointer-events="none"/>
+          <!-- ── MAIN WAREHOUSE DOOR (on left depth panel) ── -->
+          <rect x="22" y="338" width="42" height="70"
+            fill="rgba(0,0,0,0.65)" stroke="rgba(255,255,255,0.55)" stroke-width="1.2"
+            pointer-events="none"/>
+
+          <!-- ── GROUND FLOOR BAY DIVIDERS (4 equal bays, 585px / 4 = 146px each) ── -->
+          <line x1="466" y1="284" x2="466" y2="408"
+            stroke="rgba(255,255,255,0.22)" stroke-width="1" pointer-events="none"/>
+          <line x1="613" y1="284" x2="613" y2="408"
+            stroke="rgba(255,255,255,0.22)" stroke-width="1" pointer-events="none"/>
+          <line x1="759" y1="284" x2="759" y2="408"
+            stroke="rgba(255,255,255,0.22)" stroke-width="1" pointer-events="none"/>
+
+          <!-- ── STAIRS (far right lower corner, 4 steps) ── -->
+          <!-- From ground (905,408) stepping up to first floor (905,284) -->
+          <polyline
+            points="840,408 840,377 862,377 862,346 884,346 884,315 905,315 905,284"
+            fill="none"
+            stroke="rgba(255,255,255,0.52)" stroke-width="1.4"
+            pointer-events="none"/>
+
+          <!-- ── ZONE LABELS ── -->
+          <text x="207" y="300"
+            text-anchor="middle" font-family="Nunito,sans-serif"
+            font-size="7.5" font-weight="800" letter-spacing="0.1em"
+            fill="rgba(100,200,255,0.45)" pointer-events="none">OFFICE BLOCK</text>
+
+          <text x="612" y="228"
+            text-anchor="middle" font-family="Nunito,sans-serif"
+            font-size="7.5" font-weight="800" letter-spacing="0.1em"
+            fill="rgba(255,130,130,0.45)" pointer-events="none">FIRST FLOOR OPEN STORAGE</text>
+
+          <text x="530" y="360"
+            text-anchor="middle" font-family="Nunito,sans-serif"
+            font-size="7.5" font-weight="800" letter-spacing="0.1em"
+            fill="rgba(255,210,100,0.45)" pointer-events="none">GROUND FLOOR STORAGE</text>
+
+          <!-- ══════════ HOTSPOT DOTS ══════════ -->
+
+          <!-- Z0: Main Door — on left panel -->
+          <circle cx="55" cy="300" r="11"
+            fill="none" stroke="rgba(100,200,255,0.38)" stroke-width="1.2"
+            pointer-events="none"/>
+          <circle class="wh-dot" data-zone="0" cx="55" cy="300" r="5.5"
+            fill="rgba(100,200,255,0.95)" filter="url(#wfg)"/>
+          <text x="55" y="303.5" text-anchor="middle" dominant-baseline="middle"
+            font-family="Nunito,sans-serif" font-size="5" font-weight="800"
+            fill="rgba(0,0,0,0.85)" pointer-events="none">1</text>
+
+          <!-- Z1: Office Block -->
+          <circle cx="207" cy="242" r="11"
+            fill="none" stroke="rgba(100,255,160,0.38)" stroke-width="1.2"
+            pointer-events="none"/>
+          <circle class="wh-dot" data-zone="1" cx="207" cy="242" r="5.5"
+            fill="rgba(100,255,160,0.95)" filter="url(#wfg)"/>
+          <text x="207" y="245.5" text-anchor="middle" dominant-baseline="middle"
+            font-family="Nunito,sans-serif" font-size="5" font-weight="800"
+            fill="rgba(0,0,0,0.85)" pointer-events="none">2</text>
+
+          <!-- Z2: First Floor Open Storage -->
+          <circle cx="612" cy="210" r="11"
+            fill="none" stroke="rgba(255,130,130,0.38)" stroke-width="1.2"
+            pointer-events="none"/>
+          <circle class="wh-dot" data-zone="2" cx="612" cy="210" r="5.5"
+            fill="rgba(255,130,130,0.95)" filter="url(#wfg)"/>
+          <text x="612" y="213.5" text-anchor="middle" dominant-baseline="middle"
+            font-family="Nunito,sans-serif" font-size="5" font-weight="800"
+            fill="rgba(0,0,0,0.85)" pointer-events="none">3</text>
+
+          <!-- Z3: Ground Floor Storage -->
+          <circle cx="530" cy="342" r="11"
+            fill="none" stroke="rgba(255,210,100,0.38)" stroke-width="1.2"
+            pointer-events="none"/>
+          <circle class="wh-dot" data-zone="3" cx="530" cy="342" r="5.5"
+            fill="rgba(255,210,100,0.95)" filter="url(#wfg)"/>
+          <text x="530" y="345.5" text-anchor="middle" dominant-baseline="middle"
+            font-family="Nunito,sans-serif" font-size="5" font-weight="800"
+            fill="rgba(0,0,0,0.85)" pointer-events="none">4</text>
+
+          <!-- Z4: Exterior -->
+          <circle cx="460" cy="419" r="11"
+            fill="none" stroke="rgba(210,160,255,0.38)" stroke-width="1.2"
+            pointer-events="none"/>
+          <circle class="wh-dot" data-zone="4" cx="460" cy="419" r="5.5"
+            fill="rgba(210,160,255,0.95)" filter="url(#wfg)"/>
+          <text x="460" y="422.5" text-anchor="middle" dominant-baseline="middle"
+            font-family="Nunito,sans-serif" font-size="5" font-weight="800"
+            fill="rgba(0,0,0,0.85)" pointer-events="none">5</text>
+
+        </svg>
+
+        <p class="wh-hint-text">Hover to preview a zone — click to lock it in and browse photos</p>
       </div>
 
-      <!-- Grid -->
-      <div class="gal-grid" id="galleryGrid">
-
-        <div class="gal-item" data-category="interior" data-src="images/THIHA GODOWNS-10.jpg">
-          <img src="images/THIHA GODOWNS-10.jpg" alt="THIHA interior" />
-          <div class="gal-overlay"><span>⊕</span></div>
+      <!-- Photo panel -->
+      <div class="wh-panel-row">
+        <div class="wh-photo-col">
+          <div class="wh-empty-state" id="whEmpty">
+            <div class="wh-empty-icon">🏭</div>
+            <p class="about-body" style="text-align:center;max-width:280px;opacity:0.5;">Click any numbered zone on the building map above to lock it in and browse photos of that area</p>
+          </div>
+          <div class="wh-active-state" id="whActive">
+            <div class="wh-active-hdr">
+              <span class="wh-zone-pill" id="whZonePill"></span>
+              <span class="wh-zone-ct" id="whZoneCt"></span>
+            </div>
+            <div class="wh-thumb-grid" id="whThumbGrid"></div>
+            <p class="wh-click-hint">Click any photo to view full screen</p>
+          </div>
         </div>
-        <div class="gal-item" data-category="interior" data-src="images/THIHA GODOWNS-11.jpg">
-          <img src="images/THIHA GODOWNS-11.jpg" alt="THIHA interior" />
-          <div class="gal-overlay"><span>⊕</span></div>
-        </div>
-        <div class="gal-item" data-category="interior" data-src="images/THIHA GODOWNS-12.jpg">
-          <img src="images/THIHA GODOWNS-12.jpg" alt="THIHA interior" />
-          <div class="gal-overlay"><span>⊕</span></div>
-        </div>
-        <div class="gal-item" data-category="interior" data-src="images/THIHA GODOWNS-13.jpg">
-          <img src="images/THIHA GODOWNS-13.jpg" alt="THIHA interior" />
-          <div class="gal-overlay"><span>⊕</span></div>
-        </div>
-        <div class="gal-item" data-category="interior" data-src="images/THIHA GODOWNS-14.jpg">
-          <img src="images/THIHA GODOWNS-14.jpg" alt="THIHA interior" />
-          <div class="gal-overlay"><span>⊕</span></div>
-        </div>
-        <div class="gal-item" data-category="interior" data-src="images/THIHA GODOWNS-15.jpg">
-          <img src="images/THIHA GODOWNS-15.jpg" alt="THIHA interior" />
-          <div class="gal-overlay"><span>⊕</span></div>
-        </div>
-        <div class="gal-item" data-category="interior" data-src="images/THIHA GODOWNS-17.jpg">
-          <img src="images/THIHA GODOWNS-17.jpg" alt="THIHA interior" />
-          <div class="gal-overlay"><span>⊕</span></div>
-        </div>
-        <div class="gal-item" data-category="interior" data-src="images/THIHA GODOWNS-20.jpg">
-          <img src="images/THIHA GODOWNS-20.jpg" alt="THIHA interior" />
-          <div class="gal-overlay"><span>⊕</span></div>
-        </div>
-        <div class="gal-item" data-category="interior" data-src="images/THIHA GODOWNS-23.jpg">
-          <img src="images/THIHA GODOWNS-23.jpg" alt="THIHA interior" />
-          <div class="gal-overlay"><span>⊕</span></div>
-        </div>
-        <div class="gal-item" data-category="interior" data-src="images/THIHA GODOWNS-24.jpg">
-          <img src="images/THIHA GODOWNS-24.jpg" alt="THIHA interior" />
-          <div class="gal-overlay"><span>⊕</span></div>
-        </div>
-        <div class="gal-item" data-category="interior" data-src="images/THIHA GODOWNS-28.jpg">
-          <img src="images/THIHA GODOWNS-28.jpg" alt="THIHA interior" />
-          <div class="gal-overlay"><span>⊕</span></div>
-        </div>
-        <div class="gal-item" data-category="interior" data-src="images/THIHA GODOWNS-29.jpg">
-          <img src="images/THIHA GODOWNS-29.jpg" alt="THIHA interior" />
-          <div class="gal-overlay"><span>⊕</span></div>
-        </div>
-        <div class="gal-item" data-category="interior" data-src="images/THIHA GODOWNS-30.jpg">
-          <img src="images/THIHA GODOWNS-30.jpg" alt="THIHA interior" />
-          <div class="gal-overlay"><span>⊕</span></div>
-        </div>
-        <div class="gal-item" data-category="interior" data-src="images/THIHA GODOWNS-31.jpg">
-          <img src="images/THIHA GODOWNS-31.jpg" alt="THIHA interior" />
-          <div class="gal-overlay"><span>⊕</span></div>
-        </div>
-        <div class="gal-item" data-category="interior" data-src="images/THIHA GODOWNS-32.jpg">
-          <img src="images/THIHA GODOWNS-32.jpg" alt="THIHA interior" />
-          <div class="gal-overlay"><span>⊕</span></div>
-        </div>
-        <div class="gal-item" data-category="interior" data-src="images/THIHA GODOWNS-33.jpg">
-          <img src="images/THIHA GODOWNS-33.jpg" alt="THIHA interior" />
-          <div class="gal-overlay"><span>⊕</span></div>
-        </div>
-        <div class="gal-item" data-category="interior" data-src="images/THIHA GODOWNS-34.jpg">
-          <img src="images/THIHA GODOWNS-34.jpg" alt="THIHA interior" />
-          <div class="gal-overlay"><span>⊕</span></div>
-        </div>
-        <div class="gal-item" data-category="interior" data-src="images/THIHA GODOWNS-35.jpg">
-          <img src="images/THIHA GODOWNS-35.jpg" alt="THIHA interior" />
-          <div class="gal-overlay"><span>⊕</span></div>
-        </div>
-        <div class="gal-item" data-category="interior" data-src="images/THIHA GODOWNS-36.jpg">
-          <img src="images/THIHA GODOWNS-36.jpg" alt="THIHA interior" />
-          <div class="gal-overlay"><span>⊕</span></div>
-        </div>
-        <div class="gal-item" data-category="interior" data-src="images/THIHA GODOWNS-38.jpg">
-          <img src="images/THIHA GODOWNS-38.jpg" alt="THIHA interior" />
-          <div class="gal-overlay"><span>⊕</span></div>
-        </div>
-        <div class="gal-item" data-category="interior" data-src="images/THIHA GODOWNS-39.jpg">
-          <img src="images/THIHA GODOWNS-39.jpg" alt="THIHA interior" />
-          <div class="gal-overlay"><span>⊕</span></div>
-        </div>
-        <div class="gal-item" data-category="interior" data-src="images/THIHA GODOWNS-40.jpg">
-          <img src="images/THIHA GODOWNS-40.jpg" alt="THIHA interior" />
-          <div class="gal-overlay"><span>⊕</span></div>
-        </div>
-
-        <!-- Exterior videos -->
-        <div class="gal-item" data-category="exterior" data-src="images/DR1.MP4" data-type="video">
-          <video muted loop playsinline>
-            <source src="images/DR1.MP4" type="video/mp4">
-          </video>
-          <span class="gal-video-badge">Video</span>
-          <div class="gal-overlay"><span>▶</span></div>
-        </div>
-        <div class="gal-item" data-category="exterior" data-src="images/DR2_web.mp4" data-type="video">
-          <video muted loop playsinline>
-            <source src="images/DR2_web.mp4" type="video/mp4">
-          </video>
-          <span class="gal-video-badge">Video</span>
-          <div class="gal-overlay"><span>▶</span></div>
-        </div>
-        <div class="gal-item" data-category="exterior" data-src="images/DR3.MP4" data-type="video">
-          <video muted loop playsinline>
-            <source src="images/DR3.MP4" type="video/mp4">
-          </video>
-          <span class="gal-video-badge">Video</span>
-          <div class="gal-overlay"><span>▶</span></div>
-        </div>
-
       </div>
+
+    </div>
+
+    <div class="wh-legend">
+      <button class="wh-leg-btn" data-zone="0"><span class="wh-leg-dot" style="background:#64C8FF;box-shadow:0 0 6px #64C8FF88"></span>Main Warehouse Door</button>
+      <button class="wh-leg-btn" data-zone="1"><span class="wh-leg-dot" style="background:#64FFA0;box-shadow:0 0 6px #64FFA088"></span>Office Block</button>
+      <button class="wh-leg-btn" data-zone="2"><span class="wh-leg-dot" style="background:#FF8282;box-shadow:0 0 6px #FF828288"></span>First Floor Open Storage</button>
+      <button class="wh-leg-btn" data-zone="3"><span class="wh-leg-dot" style="background:#FFD264;box-shadow:0 0 6px #FFD26488"></span>Ground Floor Storage</button>
+      <button class="wh-leg-btn" data-zone="4"><span class="wh-leg-dot" style="background:#D2A0FF;box-shadow:0 0 6px #D2A0FF88"></span>Exterior &amp; Grounds</button>
     </div>
   </section>
 
-  <!-- ── Footer ─────────────────────────────── -->
+  <div class="lightbox" id="whLightbox">
+    <button class="lightbox-close" id="whLbClose">×</button>
+    <button class="lightbox-prev" id="whLbPrev">‹</button>
+    <div class="lightbox-content" id="whLbContent"></div>
+    <div class="lightbox-counter" id="whLbCounter"></div>
+    <button class="lightbox-next" id="whLbNext">›</button>
+  </div>
+
   <footer class="footer" id="contact">
     <div class="container">
-      <div class="footer-top">
-        <div class="footer-brand">THIHA</div>
-      </div>
+      <div class="footer-top"><div class="footer-brand">THIHA</div></div>
       <div class="footer-info">
         <div class="footer-col">
           <p>0722 375 143 - Mr Sylvester Ndungu</p>
@@ -195,19 +350,14 @@
           <p>Homeplus Realtors Limited</p>
         </div>
         <div class="footer-col">
-          <p>Nairobi Eastern Bypass</p>
-          <p>Nairobi, Kenya</p>
+          <a href="#contact">Nairobi Eastern Bypass</a>
+          <a href="#contact">Nairobi, Kenya</a>
           <a href="faq.html">FAQ</a>
         </div>
         <div class="footer-col footer-map">
-          <iframe
-            src="https://www.google.com/maps?q=QXCQ%2BGF+Nairobi+Kenya&output=embed"
-            width="100%"
-            style="border:0; border-radius:10px;"
-            allowfullscreen=""
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade">
-          </iframe>
+          <iframe src="https://www.google.com/maps?q=QXCQ%2BGF+Nairobi+Kenya&output=embed"
+            width="100%" style="border:0;border-radius:10px;" allowfullscreen=""
+            loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
       </div>
       <div class="footer-bottom">
@@ -216,16 +366,289 @@
     </div>
   </footer>
 
-  <!-- ── Lightbox ───────────────────────────── -->
-  <div class="lightbox" id="lightbox">
-    <button class="lightbox-close" id="lightboxClose">×</button>
-    <button class="lightbox-prev" id="lightboxPrev">‹</button>
-    <div class="lightbox-content" id="lightboxContent"></div>
-    <div class="lightbox-counter" id="lightboxCounter"></div>
-    <button class="lightbox-next" id="lightboxNext">›</button>
+  <script src="main.js"></script>
+  <!-- ── Floating Action Cluster ────────────── -->
+  <div class="fab-cluster">
+    <a href="https://wa.me/254722375143?text=Hi%20THIHA%2C%20I%27d%20like%20to%20know%20more%20about%20your%20storage%20options."
+      target="_blank" rel="noopener" class="fab-btn fab-whatsapp" aria-label="Chat on WhatsApp">
+      <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.7.9-.9 1-.2.2-.4.2-.7.1-1-.4-2-1.1-2.8-2-.7-.8-1.2-1.6-1.5-2.3-.1-.3 0-.5.1-.7l.4-.5c.1-.2.2-.4.1-.6-.1-.2-.6-1.5-.8-2-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.3.3-1 1-1 2.3 0 1.4 1 2.7 1.1 2.9.1.2 1.6 2.5 4 3.5 2 .8 2.4.7 2.8.6.4-.1 1.3-.5 1.5-1 .2-.5.2-.9.1-1zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.2-1.4c1.4.7 3 1.1 4.8 1.1 5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg>
+    </a>
+    <button class="fab-btn fab-calc" id="fabCalcBtn" aria-label="Calculate your space needs">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="8" y2="10.5"/><line x1="12" y1="10" x2="12" y2="10.5"/><line x1="16" y1="10" x2="16" y2="10.5"/><line x1="8" y1="14" x2="8" y2="14.5"/><line x1="12" y1="14" x2="12" y2="14.5"/><line x1="16" y1="14" x2="16" y2="14.5"/><line x1="8" y1="18" x2="8" y2="18.5"/><line x1="12" y1="18" x2="12" y2="18.5"/></svg>
+    </button>
   </div>
 
-  <script src="main.js"></script>
-  <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">↑</button>
+  <!-- ── Space Calculator Modal ──────────────── -->
+  <div class="calc-modal" id="calcModal">
+    <div class="calc-modal-inner">
+      <button class="calc-close" id="calcClose" aria-label="Close calculator">×</button>
+      <p class="calc-eyebrow">Space Calculator</p>
+      <h3 class="calc-title">How Much Space Do You Need?</h3>
+      <p class="calc-sub">Each of our storage floors covers 5000 sq ft. Estimate your requirement below.</p>
+
+      <div class="calc-input-row">
+        <label for="calcPallets">Number of pallets</label>
+        <input type="range" id="calcPallets" min="1" max="40" value="10" step="1"/>
+        <span class="calc-input-value" id="calcPalletsVal">60</span>
+      </div>
+
+      <div class="calc-result">
+        <div class="calc-result-figure">
+          <span class="calc-result-number" id="calcSqft">320</span>
+          <span class="calc-result-unit">sq ft estimated</span>
+        </div>
+      </div>
+
+      <div class="calc-bars">
+        <div class="calc-bar-row">
+          <div class="calc-bar-label">
+            <span>Ground Floor Storage</span>
+            <span id="calcGroundPct">0%</span>
+          </div>
+          <div class="calc-bar-track"><div class="calc-bar-fill" id="calcGroundFill"></div></div>
+        </div>
+        <div class="calc-bar-row">
+          <div class="calc-bar-label">
+            <span>First Floor Open Storage</span>
+            <span id="calcFirstPct">0%</span>
+          </div>
+          <div class="calc-bar-track"><div class="calc-bar-fill calc-bar-fill-alt" id="calcFirstFill"></div></div>
+        </div>
+      </div>
+
+      <p class="calc-note" id="calcNote">Comfortably fits within our Ground Floor Storage with room to grow.</p>
+
+      <a href="book-online.html" class="btn btn-outline-light calc-cta">Get a Tailored Quote</a>
+    </div>
+  </div>
+
+  <!-- ── Cookie Consent Banner ───────────────── -->
+  <div class="cookie-banner" id="cookieBanner">
+    <p class="cookie-text">We use cookies to improve your experience on this site and remember your preferences. <a href="#contact">Learn more</a>.</p>
+    <div class="cookie-actions">
+      <button class="cookie-btn cookie-decline" id="cookieDecline">Decline</button>
+      <button class="cookie-btn cookie-accept" id="cookieAccept">Accept</button>
+    </div>
+  </div>
+
+  <script>
+  (function () {
+
+    /* ── Frost overlay ─────────────────── */
+    var frost = document.getElementById('whFrost');
+    var whSect = document.getElementById('whSection');
+    if (frost && whSect) {
+      var io = new IntersectionObserver(function (entries) {
+        frost.classList.toggle('wh-frost-on', entries[0].isIntersecting);
+      }, { threshold: 0.05 });
+      io.observe(whSect);
+    }
+
+    /* ── Zone data ─────────────────────── */
+    var ZONES = [
+      { id:0, name:'Main Warehouse Door', color:'#64C8FF', rgb:'100,200,255',
+        photos:[
+          {src:'images/THIHA GODOWNS-40.jpg',t:'img'},
+          {src:'images/DR1.MP4',t:'vid'}
+        ]
+      },
+      { id:1, name:'Office Block', color:'#64FFA0', rgb:'100,255,160',
+        photos:[
+          {src:'images/THIHA GODOWNS-12.jpg',t:'img'},
+          {src:'images/THIHA GODOWNS-13.jpg',t:'img'},
+          {src:'images/THIHA GODOWNS-14.jpg',t:'img'},
+          {src:'images/THIHA GODOWNS-32.jpg',t:'img'},
+          {src:'images/THIHA GODOWNS-33.jpg',t:'img'},
+          {src:'images/THIHA GODOWNS-34.jpg',t:'img'},
+          {src:'images/THIHA GODOWNS-35.jpg',t:'img'},
+          {src:'images/THIHA GODOWNS-36.jpg',t:'img'}
+        ]
+      },
+      { id:2, name:'First Floor Open Storage', color:'#FF8282', rgb:'255,130,130',
+        photos:[
+
+          {src:'images/THIHA GODOWNS-23.jpg',t:'img'},
+          {src:'images/THIHA GODOWNS-24.jpg',t:'img'},
+          {src:'images/THIHA GODOWNS-28.jpg',t:'img'},
+          {src:'images/hero2.jpg',t:'img'},
+          {src:'images/THIHA GODOWNS-29.jpg',t:'img'},
+          {src:'images/THIHA GODOWNS-30.jpg',t:'img'},
+          {src:'images/THIHA GODOWNS-31.jpg',t:'img'},
+
+        ]
+      },
+      { id:3, name:'Ground Floor Storage', color:'#FFD264', rgb:'255,210,100',
+        photos:[
+          {src:'images/THIHA GODOWNS-12.jpg',t:'img'},
+          {src:'images/THIHA GODOWNS-13.jpg',t:'img'},
+          {src:'images/THIHA GODOWNS-14.jpg',t:'img'},
+          {src:'images/THIHA GODOWNS-11.jpg',t:'img'},
+          {src:'images/THIHA GODOWNS-15.jpg',t:'img'},
+          {src:'images/THIHA GODOWNS-17.jpg',t:'img'},
+        ]
+      },
+      { id:4, name:'Exterior & Grounds', color:'#D2A0FF', rgb:'210,160,255',
+        photos:[
+          {src:'images/DR2_web.mp4',t:'vid'},
+          {src:'images/DR3.MP4',t:'vid'}
+        ]
+      }
+    ];
+
+    var whEmpty     = document.getElementById('whEmpty');
+    var whActive    = document.getElementById('whActive');
+    var whZonePill  = document.getElementById('whZonePill');
+    var whZoneCt    = document.getElementById('whZoneCt');
+    var whThumbGrid = document.getElementById('whThumbGrid');
+    var lockedZone  = -1; /* -1 = no zone locked in yet */
+
+    /* Paint a single zone's fill/stroke based on its current state */
+    function paintZone(id, mode) {
+      var el = document.getElementById('wz' + id);
+      if (!el) return;
+      var z = ZONES[id];
+      if (mode === 'locked') {
+        el.setAttribute('fill', 'rgba(' + z.rgb + ',0.22)');
+        el.setAttribute('stroke', 'rgba(' + z.rgb + ',0.9)');
+        el.setAttribute('stroke-width', '2');
+      } else if (mode === 'hover') {
+        el.setAttribute('fill', 'rgba(' + z.rgb + ',0.12)');
+        el.setAttribute('stroke', 'rgba(' + z.rgb + ',0.5)');
+        el.setAttribute('stroke-width', '1.4');
+      } else {
+        el.setAttribute('fill', 'rgba(' + z.rgb + ',0.06)');
+        el.setAttribute('stroke', 'rgba(' + z.rgb + ',0)');
+        el.setAttribute('stroke-width', '0');
+      }
+    }
+
+    function repaintAll() {
+      for (var i = 0; i < ZONES.length; i++) {
+        paintZone(i, i === lockedZone ? 'locked' : 'idle');
+      }
+    }
+
+    /* Locking a zone is what updates the photo panel — hovering never does */
+    function lockZone(id) {
+      if (id === lockedZone) return;
+      lockedZone = id;
+      var zone = ZONES[id];
+
+      repaintAll();
+
+      document.querySelectorAll('.wh-leg-btn').forEach(function (btn) {
+        btn.classList.toggle('wh-leg-active', parseInt(btn.dataset.zone) === id);
+      });
+
+      whEmpty.style.display = 'none';
+      whActive.style.display = 'flex';
+      whZonePill.textContent       = zone.name;
+      whZonePill.style.background  = zone.color + '22';
+      whZonePill.style.borderColor = zone.color + '66';
+      whZonePill.style.color       = zone.color;
+      whZoneCt.textContent = zone.photos.length + ' items';
+
+      whThumbGrid.innerHTML = '';
+      zone.photos.forEach(function (item, i) {
+        var thumb = document.createElement('div');
+        thumb.className = 'wh-thumb';
+        if (item.t === 'vid') {
+          var v = document.createElement('video');
+          v.src = item.src; v.muted = true; v.loop = true;
+          v.playsInline = true; v.autoplay = true;
+          thumb.appendChild(v);
+          var badge = document.createElement('span');
+          badge.className = 'wh-vid-badge'; badge.textContent = '▶';
+          thumb.appendChild(badge);
+        } else {
+          var img = document.createElement('img');
+          img.src = item.src; img.alt = zone.name; img.loading = 'lazy';
+          thumb.appendChild(img);
+        }
+        (function (idx) {
+          thumb.addEventListener('click', function () { openLb(zone.photos, idx); });
+        }(i));
+        whThumbGrid.appendChild(thumb);
+      });
+    }
+
+    /* Zone polygons + hotspot dots: hover = light preview, click = lock */
+    document.querySelectorAll('.wh-zone, .wh-dot').forEach(function (el) {
+      el.addEventListener('mouseenter', function () {
+        var id = parseInt(el.dataset.zone);
+        if (id === lockedZone) return;
+        paintZone(id, 'hover');
+      });
+      el.addEventListener('mouseleave', function () {
+        var id = parseInt(el.dataset.zone);
+        if (id === lockedZone) return;
+        paintZone(id, 'idle');
+      });
+      el.addEventListener('click', function () {
+        lockZone(parseInt(el.dataset.zone));
+      });
+    });
+
+    /* Legend buttons: hover = light preview, click = lock + open lightbox */
+    document.querySelectorAll('.wh-leg-btn').forEach(function (btn) {
+      btn.addEventListener('mouseenter', function () {
+        var id = parseInt(btn.dataset.zone);
+        if (id === lockedZone) return;
+        paintZone(id, 'hover');
+      });
+      btn.addEventListener('mouseleave', function () {
+        var id = parseInt(btn.dataset.zone);
+        if (id === lockedZone) return;
+        paintZone(id, 'idle');
+      });
+      btn.addEventListener('click', function () {
+        var id = parseInt(btn.dataset.zone);
+        lockZone(id);
+        openLb(ZONES[id].photos, 0);
+      });
+    });
+
+    /* ── Lightbox ──────────────────────── */
+    var lb        = document.getElementById('whLightbox');
+    var lbContent = document.getElementById('whLbContent');
+    var lbCounter = document.getElementById('whLbCounter');
+    var lbPhotos  = [], lbIdx = 0;
+
+    function openLb(photos, idx) {
+      lbPhotos = photos; lbIdx = idx; renderLb(); lb.classList.add('active');
+    }
+    function renderLb() {
+      var item = lbPhotos[lbIdx];
+      lbContent.innerHTML = '';
+      if (item.t === 'vid') {
+        var v = document.createElement('video');
+        v.src = item.src; v.controls = true; v.autoplay = true;
+        v.className = 'lightbox-media'; lbContent.appendChild(v);
+      } else {
+        var img = document.createElement('img');
+        img.src = item.src; img.className = 'lightbox-media';
+        lbContent.appendChild(img);
+      }
+      lbCounter.textContent = (lbIdx + 1) + ' / ' + lbPhotos.length;
+    }
+    function closeLb() { lb.classList.remove('active'); lbContent.innerHTML = ''; }
+
+    document.getElementById('whLbClose').addEventListener('click', closeLb);
+    document.getElementById('whLbPrev').addEventListener('click', function () {
+      lbIdx = (lbIdx - 1 + lbPhotos.length) % lbPhotos.length; renderLb();
+    });
+    document.getElementById('whLbNext').addEventListener('click', function () {
+      lbIdx = (lbIdx + 1) % lbPhotos.length; renderLb();
+    });
+    lb.addEventListener('click', function (e) { if (e.target === lb) closeLb(); });
+    document.addEventListener('keydown', function (e) {
+      if (!lb.classList.contains('active')) return;
+      if (e.key === 'Escape') closeLb();
+      if (e.key === 'ArrowLeft')  { lbIdx = (lbIdx - 1 + lbPhotos.length) % lbPhotos.length; renderLb(); }
+      if (e.key === 'ArrowRight') { lbIdx = (lbIdx + 1) % lbPhotos.length; renderLb(); }
+    });
+
+  }());
+  </script>
 </body>
 </html>

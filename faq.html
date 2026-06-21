@@ -25,7 +25,7 @@
     <div class="spine-fill" id="spineFill"></div>
   </div>
 
-  <!-- ── Navigation ─────────────────────────── -->
+ <!-- ── Navigation ─────────────────────────── -->
   <nav class="nav">
     <div class="container">
       <a href="index.html" class="nav-logo">
@@ -33,10 +33,56 @@
         <span class="wordmark">THIHA</span>
       </a>
       <ul class="nav-links">
-        <li><a href="about-us.html">About Us</a></li>
-        <li><a href="gallery.html">Gallery</a></li>
-        <li><a href="faq.html" class="active">FAQ</a></li>
-        <li><a href="book-online.html" class="btn btn-nav">Book Online</a></li>
+        <li class="nav-item"><a href="about-us.html">About Us</a></li>
+        <li class="nav-item"><a href="gallery.html">Gallery</a></li>
+        <li class="nav-item nav-has-dropdown">
+          <a href="faq.html" class="nav-dropdown-trigger">FAQ</a>
+          <div class="nav-dropdown">
+            <div class="nav-dropdown-group">
+              <span class="nav-dropdown-category">General</span>
+              <a href="faq.html#what-is-thiha" class="nav-dropdown-item">What is THIHA Warehouses?</a>
+              <a href="faq.html#what-businesses" class="nav-dropdown-item">What types of businesses does THIHA work with?</a>
+              <a href="faq.html#where-located" class="nav-dropdown-item">Where is THIHA Warehouses located?</a>
+            </div>
+            <div class="nav-dropdown-group">
+              <span class="nav-dropdown-category">Storage</span>
+              <a href="faq.html#storage-options" class="nav-dropdown-item">What storage options are available?</a>
+              <a href="faq.html#scale-storage" class="nav-dropdown-item">Can I scale my storage up or down?</a>
+              <a href="faq.html#inventory-secure" class="nav-dropdown-item">How is my inventory kept secure?</a>
+            </div>
+            <div class="nav-dropdown-group">
+              <span class="nav-dropdown-category">Getting Started</span>
+              <a href="faq.html#get-started" class="nav-dropdown-item">How do I get started?</a>
+              <a href="faq.html#onboarding-time" class="nav-dropdown-item">How long does onboarding take?</a>
+              <a href="faq.html#minimum-contract" class="nav-dropdown-item">Is there a minimum contract term?</a>
+            </div>
+          </div>
+        </li>
+        <li class="nav-item nav-has-dropdown">
+          <a href="book-online.html" class="btn btn-nav nav-dropdown-trigger">Book Online</a>
+          <div class="nav-dropdown nav-dropdown-right">
+            <p class="nav-dropdown-heading">Get in Touch</p>
+            <div class="nav-dropdown-contacts">
+              <div class="nav-dropdown-contact-item">
+                <span>📞</span>
+                <span>0722 375 143 — Mr Sylvester Ndungu</span>
+              </div>
+              <div class="nav-dropdown-contact-item">
+                <span>✉️</span>
+                <span>info@homepluskenya.com</span>
+              </div>
+              <div class="nav-dropdown-contact-item">
+                <span>📍</span>.
+                <span><a href="#contact">Nairobi Eastern Bypass, Nairobi</a</span>
+              </div>
+              <div class="nav-dropdown-contact-item">
+                <span>🕐</span>
+                <span>Response within 1 business day</span>
+              </div>
+            </div>
+            <a href="book-online.html#enquiry-form" class="nav-dropdown-cta">Send an Enquiry →</a>
+          </div>
+        </li>
       </ul>
       <button class="nav-toggle" aria-label="Toggle menu">
         <span></span><span></span><span></span>
@@ -57,12 +103,12 @@
     <div class="faq-sections-stage">
       <div class="faq-stage-box">
 
-        <!-- Panel 1: General -->
+       <!-- Panel 1: General -->
         <div class="faq-panel">
           <div class="faq-stage">
             <p class="faq-category-label">General</p>
             <div class="faq-items-list">
-              <div class="faq-glass-item">
+              <div class="faq-glass-item" id="what-is-thiha">
                 <button class="faq-glass-question">
                   What is THIHA Warehouses?
                   <span class="faq-glass-icon">+</span>
@@ -71,7 +117,7 @@
                   <div class="faq-glass-answer-inner">THIHA Warehouses is a full-service warehouse and logistics provider offering storage solutions, logistics management, and inventory control services to businesses of all sizes. We operate a network of strategically located facilities and work closely with clients to ensure their goods are stored safely, managed accurately, and moved efficiently.</div>
                 </div>
               </div>
-              <div class="faq-glass-item">
+              <div class="faq-glass-item" id="what-businesses">
                 <button class="faq-glass-question">
                   What types of businesses does THIHA work with?
                   <span class="faq-glass-icon">+</span>
@@ -80,7 +126,7 @@
                   <div class="faq-glass-answer-inner">THIHA serves businesses across retail, e-commerce, and manufacturing — from growing startups to established enterprises. If your business holds, moves, or fulfils physical goods, THIHA can support your operations. Our flexible service model means we can tailor solutions regardless of your size or sector.</div>
                 </div>
               </div>
-              <div class="faq-glass-item">
+              <div class="faq-glass-item" id="where-located">
                 <button class="faq-glass-question">
                   Where is THIHA Warehouses located?
                   <span class="faq-glass-icon">+</span>
@@ -98,7 +144,7 @@
           <div class="faq-stage">
             <p class="faq-category-label">Storage</p>
             <div class="faq-items-list">
-              <div class="faq-glass-item">
+              <div class="faq-glass-item" id="storage-options">
                 <button class="faq-glass-question">
                   What storage options are available at THIHA?
                   <span class="faq-glass-icon">+</span>
@@ -107,7 +153,7 @@
                   <div class="faq-glass-answer-inner">THIHA offers a range of storage configurations including pallet racking, bulk floor storage, shelving for smaller items, temperature-controlled storage, and secure high-value storage. We work with you to determine the most appropriate setup for your inventory type and volume.</div>
                 </div>
               </div>
-              <div class="faq-glass-item">
+              <div class="faq-glass-item" id="scale-storage">
                 <button class="faq-glass-question">
                   Can I scale my storage up or down as needed?
                   <span class="faq-glass-icon">+</span>
@@ -116,7 +162,7 @@
                   <div class="faq-glass-answer-inner">Yes. THIHA's storage agreements are designed to be flexible. You can increase or reduce your allocated space as your inventory requirements change — whether that's accommodating seasonal peaks or scaling down during quieter periods. Speak to your account manager about the options available.</div>
                 </div>
               </div>
-              <div class="faq-glass-item">
+              <div class="faq-glass-item" id="inventory-secure">
                 <button class="faq-glass-question">
                   How is my inventory kept secure?
                   <span class="faq-glass-icon">+</span>
@@ -134,7 +180,7 @@
           <div class="faq-stage">
             <p class="faq-category-label">Getting Started</p>
             <div class="faq-items-list">
-              <div class="faq-glass-item">
+              <div class="faq-glass-item" id="get-started">
                 <button class="faq-glass-question">
                   How do I get started with THIHA Warehouses?
                   <span class="faq-glass-icon">+</span>
@@ -143,7 +189,7 @@
                   <div class="faq-glass-answer-inner">The simplest way to get started is to book an online consultation. One of our team will get in touch to understand your requirements, walk you through the most appropriate service options, and provide a no-obligation quote. From there, we'll handle the onboarding process and get your goods into our system as efficiently as possible.</div>
                 </div>
               </div>
-              <div class="faq-glass-item">
+              <div class="faq-glass-item" id="onboarding-time">
                 <button class="faq-glass-question">
                   How long does onboarding take?
                   <span class="faq-glass-icon">+</span>
@@ -152,7 +198,7 @@
                   <div class="faq-glass-answer-inner">For most clients, THIHA can complete the onboarding process and be ready to receive your first inbound shipment within 5–10 business days of signing an agreement. Complex or high-volume setups may require additional time, which will be clearly communicated during your consultation.</div>
                 </div>
               </div>
-              <div class="faq-glass-item">
+              <div class="faq-glass-item" id="minimum-contract">
                 <button class="faq-glass-question">
                   Is there a minimum contract term?
                   <span class="faq-glass-icon">+</span>
@@ -222,6 +268,68 @@
   </footer>
 
   <script src="main.js"></script>
-  <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">↑</button>
+  <!-- ── Floating Action Cluster ────────────── -->
+  <div class="fab-cluster">
+    <a href="https://wa.me/254722375143?text=Hi%20THIHA%2C%20I%27d%20like%20to%20know%20more%20about%20your%20storage%20options."
+      target="_blank" rel="noopener" class="fab-btn fab-whatsapp" aria-label="Chat on WhatsApp">
+      <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.7.9-.9 1-.2.2-.4.2-.7.1-1-.4-2-1.1-2.8-2-.7-.8-1.2-1.6-1.5-2.3-.1-.3 0-.5.1-.7l.4-.5c.1-.2.2-.4.1-.6-.1-.2-.6-1.5-.8-2-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.3.3-1 1-1 2.3 0 1.4 1 2.7 1.1 2.9.1.2 1.6 2.5 4 3.5 2 .8 2.4.7 2.8.6.4-.1 1.3-.5 1.5-1 .2-.5.2-.9.1-1zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.2-1.4c1.4.7 3 1.1 4.8 1.1 5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg>
+    </a>
+    <button class="fab-btn fab-calc" id="fabCalcBtn" aria-label="Calculate your space needs">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="8" y2="10.5"/><line x1="12" y1="10" x2="12" y2="10.5"/><line x1="16" y1="10" x2="16" y2="10.5"/><line x1="8" y1="14" x2="8" y2="14.5"/><line x1="12" y1="14" x2="12" y2="14.5"/><line x1="16" y1="14" x2="16" y2="14.5"/><line x1="8" y1="18" x2="8" y2="18.5"/><line x1="12" y1="18" x2="12" y2="18.5"/></svg>
+    </button>
+  </div>
+
+  <!-- ── Space Calculator Modal ──────────────── -->
+  <div class="calc-modal" id="calcModal">
+    <div class="calc-modal-inner">
+      <button class="calc-close" id="calcClose" aria-label="Close calculator">×</button>
+      <p class="calc-eyebrow">Space Calculator</p>
+      <h3 class="calc-title">How Much Space Do You Need?</h3>
+      <p class="calc-sub">Each of our storage floors covers 5000 sq ft. Estimate your requirement below.</p>
+
+      <div class="calc-input-row">
+        <label for="calcPallets">Number of pallets</label>
+        <input type="range" id="calcPallets" min="1" max="40" value="10" step="1"/>
+        <span class="calc-input-value" id="calcPalletsVal">60</span>
+      </div>
+
+      <div class="calc-result">
+        <div class="calc-result-figure">
+          <span class="calc-result-number" id="calcSqft">320</span>
+          <span class="calc-result-unit">sq ft estimated</span>
+        </div>
+      </div>
+
+      <div class="calc-bars">
+        <div class="calc-bar-row">
+          <div class="calc-bar-label">
+            <span>Ground Floor Storage</span>
+            <span id="calcGroundPct">0%</span>
+          </div>
+          <div class="calc-bar-track"><div class="calc-bar-fill" id="calcGroundFill"></div></div>
+        </div>
+        <div class="calc-bar-row">
+          <div class="calc-bar-label">
+            <span>First Floor Open Storage</span>
+            <span id="calcFirstPct">0%</span>
+          </div>
+          <div class="calc-bar-track"><div class="calc-bar-fill calc-bar-fill-alt" id="calcFirstFill"></div></div>
+        </div>
+      </div>
+
+      <p class="calc-note" id="calcNote">Comfortably fits within our Ground Floor Storage with room to grow.</p>
+
+      <a href="book-online.html" class="btn btn-outline-light calc-cta">Get a Tailored Quote</a>
+    </div>
+  </div>
+
+  <!-- ── Cookie Consent Banner ───────────────── -->
+  <div class="cookie-banner" id="cookieBanner">
+    <p class="cookie-text">We use cookies to improve your experience on this site and remember your preferences. <a href="#contact">Learn more</a>.</p>
+    <div class="cookie-actions">
+      <button class="cookie-btn cookie-decline" id="cookieDecline">Decline</button>
+      <button class="cookie-btn cookie-accept" id="cookieAccept">Accept</button>
+    </div>
+  </div>
 </body>
 </html>
